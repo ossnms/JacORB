@@ -1247,7 +1247,7 @@ public final class Any
                 // fallthrough
             case TCKind._tk_enum:       // 17
             {
-                CDROutputStream out = new CDROutputStream(orb);
+                CDROutputStream out = (CDROutputStream)create_output_stream();
                 out.write_value(type, input);
                 value = out;
                 break;
@@ -1265,7 +1265,7 @@ public final class Any
                 // fallthrough
             case TCKind._tk_except:     // 22
             {
-                CDROutputStream out = new CDROutputStream(orb);
+                CDROutputStream out = (CDROutputStream)create_output_stream();
                 out.write_value(type, input);
                 value = out;
                 break;
@@ -1607,7 +1607,7 @@ public final class Any
         }
         else
         {
-            thisStream = new CDROutputStream(orb);
+            thisStream = (CDROutputStream)create_output_stream();
             write_value(thisStream);
         }
 
@@ -1619,7 +1619,7 @@ public final class Any
         }
         else
         {
-            otherStream = new CDROutputStream(orb);
+            otherStream = (CDROutputStream)create_output_stream();
             other.write_value( otherStream );
         }
 
