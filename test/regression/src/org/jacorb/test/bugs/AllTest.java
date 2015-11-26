@@ -101,7 +101,7 @@ public class AllTest extends JacORBTestSuite
       suite.addTest(BugJac181Test.suite());
       suite.addTest(BugJac189Test.suite());
       suite.addTest(BugJac195Test.suite());
-      suite.addTest(AcceptorExceptionListenerTest.suite());
+      //suite.addTest(AcceptorExceptionListenerTest.suite());
       suite.addTest(BugJac251Test.suite());
       suite.addTest(BugJac257Test.suite());
       suite.addTest(BugJac262Test.suite());

@@ -28,3 +28,8 @@ test/regression/output/TEST-*
 
 demo/*/build
 test/interop/*/build
+
+**/target
+classes-instrumented
+coverage.em
+

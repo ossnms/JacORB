@@ -20,6 +20,8 @@ package org.jacorb.security.sas;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+import com.sun.security.jgss.InquireType;
+
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.security.Provider;
@@ -309,5 +311,20 @@ public final class GSSUPContextSpi
     public boolean isInitiator ()
     {
         return false;
+    }
+    
+    public Object inquireSecContext(InquireType paramInquireType) throws GSSException
+    {
+        throw new UnsupportedOperationException();
+    }
+    
+    public void requestDelegPolicy(boolean state) throws GSSException
+    {
+        throw new UnsupportedOperationException();
+    }
+    
+    public boolean getDelegPolicyState()
+    {
+        throw new UnsupportedOperationException();
     }
 }

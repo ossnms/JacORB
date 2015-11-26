@@ -133,7 +133,10 @@ public abstract class AbstractSocketFactoryTestCase extends TestCase
         checkSocketIsConnected(socket);
     }
 
-    public final void testConnectToNonExistentPortWithTimeout() throws Exception
+    // There are 3 concrete test classes invoking this method in sequence.
+    // The first execution will timeout as expected, but the following two may
+    // fail with a SocketException (Network unreachable), which breaks tests.
+    public final void disabled_testConnectToNonExistentPortWithTimeout() throws Exception
     {
         try
         {

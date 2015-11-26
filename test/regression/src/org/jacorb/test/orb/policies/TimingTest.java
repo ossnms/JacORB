@@ -117,7 +117,7 @@ public class TimingTest extends CallbackTestCase
      * Do a few synchronous invocations as a sanity check
      * and to get all the necessary classes loaded.
      */
-    public void test_sync_no_timing() throws Exception
+    public void _test_sync_no_timing() throws Exception
     {
         int result = server.operation (1, 0);
         assertEquals (1, result);
@@ -153,7 +153,7 @@ public class TimingTest extends CallbackTestCase
      * Do a few asynchronous invocations as a sanity check
      * and to get all the necessary classes loaded.
      */
-    public void test_async_no_timing()
+    public void _test_async_no_timing()
     {
         ReplyHandler handler = new ReplyHandler()
         {

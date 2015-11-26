@@ -24,6 +24,7 @@ import java.security.Provider;
 
 import org.ietf.jgss.GSSCredential;
 import org.ietf.jgss.GSSException;
+import org.ietf.jgss.GSSName;
 import org.ietf.jgss.Oid;
 
 import sun.security.jgss.spi.GSSCredentialSpi;
@@ -96,5 +97,10 @@ public final class GSSUPCredentialSpi implements GSSCredentialSpi
     public Oid getMechanism()
     {
         return myMechOid;
+    }
+
+    public GSSCredentialSpi impersonate(GSSNameSpi name) throws GSSException
+    {
+        throw new UnsupportedOperationException();
     }
 }
