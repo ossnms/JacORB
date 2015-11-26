@@ -19,7 +19,6 @@ package org.jacorb.poa;
  *   License along with this library; if not, write to the Free
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
-
 import java.util.Enumeration;
 import java.util.Hashtable;
 import org.jacorb.config.*;
@@ -282,6 +281,7 @@ public class POA
                       requestController.getRequestQueue(),
                       requestController.getPoolManager(),
                       "POA " + name );
+
 
         monitor.openMonitor();
         if (poaListener != null)
@@ -1628,6 +1628,12 @@ public class POA
             if (logger.isDebugEnabled())
             {
                 logger.debug(logPrefix + "... done");
+            }
+
+            if (aom != null)
+            {
+               // Stop the AOM removal queue.
+               aom.aomRemoval.end ();
             }
 
             /* etherialize all active objects */
