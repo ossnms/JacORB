@@ -33,3 +33,5 @@ test/interop/*/build
 classes-instrumented
 coverage.em
 
+
+**/*-testidl

@@ -4,6 +4,9 @@
 
 <project name="regression-test" default="help" basedir="../../">
 
+    <property environment="env" />
+
+    <property name="ant.home" value="${env.ANT_HOME}" />
     <property name="jacorb.home" value="${basedir}" />
     <property name="testdir" value="${basedir}/test/regression" />
     <property name="dirs.base" value="${testdir}" />
@@ -344,6 +347,9 @@
                     works with plain ant AND the nightly build
                 -->
                 <fileset dir="${ant.home}">
+                    <include name="**/*.jar" />
+                </fileset>
+                <fileset dir="${basedir}/lib">
                     <include name="**/*.jar" />
                 </fileset>
             </classpath>

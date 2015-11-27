@@ -535,10 +535,15 @@ public class TestUtils
         {
             javaHome = javaHome.substring(0, javaHome.length() - 4);
         }
-        String cmd = javaHome + "/bin/javac -d " + dirCompilation + " -bootclasspath " + classpath + ":" + System.getProperty("sun.boot.class.path") + " @" + file.getAbsolutePath();
+        String[] cmd = new String[] {
+            javaHome + File.separator + "bin" + File.separator + "javac",
+            "-d", dirCompilation.toString(),
+            "-Xbootclasspath/p:" + classpath,
+            "@" + file.getAbsolutePath()
+        };
         try
         {
-            TestUtils.log("[COMPILE] " + cmd);
+            TestUtils.log("[COMPILE] " + Arrays.toString(cmd));
             TestUtils.log("[COMPILE] " + files.length + " java files");
 
             Process proc = Runtime.getRuntime().exec(cmd);
@@ -546,7 +551,7 @@ public class TestUtils
             int exit = proc.waitFor();
             if (failureExpected && exit == 0)
             {
-                Assert.fail("should fail: " + cmd);
+                Assert.fail("should fail: " + Arrays.toString(cmd));
             }
 
             if (exit != 0)
@@ -562,7 +567,7 @@ public class TestUtils
                     b.append("\n");
                 }
 
-                Assert.fail(cmd + "\n" + b.toString());
+                Assert.fail(Arrays.toString(cmd) + "\n" + b.toString());
             }
 
             return new URLClassLoader(new URL[] {dirCompilation.toURL()});
@@ -571,7 +576,7 @@ public class TestUtils
         {
             if (!failureExpected)
             {
-                AssertionFailedError error = new AssertionFailedError("cmd: " + cmd);
+                AssertionFailedError error = new AssertionFailedError("cmd: " + Arrays.toString(cmd));
                 error.initCause(e);
                 throw error;
             }
