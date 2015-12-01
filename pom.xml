@@ -43,8 +43,8 @@
     </licenses>
 
     <scm>
-        <connection>scm:git:git@github.com:JacORB/JacORB.git</connection>
-        <url>https://github.com/JacORB/JacORB</url>
+        <connection>scm:git:git@github.com:ossnms/JacORB.git</connection>
+        <url>https://github.com/ossnms/JacORB</url>
     </scm>
 
     <issueManagement>
