@@ -60,6 +60,7 @@
          Added jacorb.interop.null_string_encoding to allow handling of null strings. Thanks to Fabiano Ghisla.
          Fix for classcast exception setting enabledProtocols.
          Fix for the incorrect GIOP v1.1 message header creation in RequestOutputStream
+         Ensure IIOP close doesn't throw exceptions.
     - POA:
          Fix shutdown issue (jacorb-2.3.1-CORBA_OBJECT_NOT_EXIST.patch)
          Fix for AOM thread creation (jacorb-2.3.1-thread-per-request.patch)
